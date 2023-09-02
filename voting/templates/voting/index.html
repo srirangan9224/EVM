@@ -1,0 +1,48 @@
+{% extends 'voting/outline.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    {% block head %}
+    <title>Election</title>
+    <style>
+        h2,p,li{
+            font-size: 30px;
+        }
+    </style>
+    {% if msg == "you have voted" %}
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            let a = document.querySelector("#tst")
+            a.style.display = 'none'
+         	let secondsLeft = 10
+            const downloadTimer = setInterval( 
+                () => {
+                    if (secondsLeft <= 0) {
+                        clearInterval(downloadTimer)
+                        console.log("works")
+                        a.style.display = 'block';
+                    }
+                    secondsLeft -= 1
+                            }, 500)
+            
+        })
+    </script>
+    {% endif %}
+    {% endblock %}
+
+    {% block body %} 
+    <h1> The PSBB Millennium School elections</h1>
+    <h1>
+    <h2>About</h2>
+    <p>This page was designed to conduct elections. Cast your vote in the vote page whose link is in the title bar.</p>
+    <h2>General instructions</h2>
+    <ul>
+        <li>Read the LOC to know about the candidates contesting in the election.</li>
+        <li>Go to the vote page.</li>
+        <li>In the vote page, you will be able to see the candidates' names ,photos and logos.</li>
+        <li>Cast your vote.</li>
+        <li>A success alert will emerge.</li>
+    </ul>
+`   </h1>
+    
+    {% endblock %}
+</html>

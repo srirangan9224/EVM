@@ -1,0 +1,12 @@
+<h1><center>Results</center></h1>
+<h1>Boys</h1>
+{% for candidate in boys %}
+{{ candidate.name }} - {{ candidate.votes }}
+<br>
+{% endfor %}
+<br><br>
+<h1>Girls</h1>
+{% for candidate in girls %}
+{{ candidate.name }} - {{ candidate.votes }}
+<br>
+{% endfor %}

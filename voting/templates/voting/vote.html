@@ -1,0 +1,41 @@
+{% extends 'voting/outline.html' %}
+{% block head %}
+<style>
+    input[type="radio"] {
+    cursor: pointer;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+
+<center><h1>SPL Elections AY 2023-24</h1></center>
+
+<center>
+<h2>GIRLS CANDIDATE</h2>
+
+<form method="post" action="{% url 'vote' %}">
+        {% csrf_token %}
+        {% for candidate in girls %}
+        <input type="radio" value="{{ candidate.id}}" name="girls" style="border-radius: 50%;height: 25px;
+        width: 25px;">
+        <img src="{{ candidate.image.name }}" style="height:150px;width:150px">
+        <img src="{{ candidate.logo.name}}" style="height:150px;width:150px">
+        {% empty %}
+        <input type="radio" value="none" name="girls">None</option>
+        {% endfor %}
+
+    <h2>BOYS CANDIDATE</h2>
+        {% for candidate in boys %}
+        <input type="radio" value="{{ candidate.id}}" name="boys" style="border-radius: 50%;height: 25px;
+        width: 25px;">
+        <img src="{{ candidate.image.name }}" style="height:150px;width:150px">
+        <img src="{{ candidate.logo.name}}" style="height:150px;width:150px">
+        {% empty %}
+        <input type="radio" value="None" name="boys">None
+        {% endfor %}
+        <br><br>
+        <input type="submit" class="btn-btn-primary" value="CLICK TO CAST VOTE">
+</form>
+</center>
+{% endblock %}

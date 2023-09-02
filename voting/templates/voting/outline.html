@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <style>
+            body{
+                background-image: url('{% static "voting/school.jpg" %}');
+                background-size: cover;
+                color:orchid;
+                font-size: 30px;
+            }
+            link:hover{
+                color:blue
+            }
+            h1{
+                color:aliceblue
+            }
+        </style>
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar bg-dark border-bottom border-bottom-dark" data-bs-theme="dark" id="tst">
+            <img src="{% static 'voting/psbb.jpg' %}" height="100px">
+            <a class="links" href="{% url 'index' 'hello' %}"><h1>ABOUT</h1></a>
+            <a class="links" href="{% url 'LOC' %}"><h1>LOC</h1></a>
+            <a class="links" href="{% url 'vote' %}"><h1>VOTE</h1></a>
+        </nav>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

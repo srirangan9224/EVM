@@ -1,0 +1,49 @@
+{% extends 'voting/outline.html' %}
+{% load static %}
+{% block head %}
+<title>LOC</title>
+<style>
+    p,h2{
+        font-size: 30px;
+        color:violet;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<h2>Boys</h2>
+{% for candidate in candidates %}
+{% if candidate.gender == "Male" %}
+<div style="border: 3px solid black">
+<p>
+Name: {{ candidate.name }}
+<br>
+class: {{candidate.Class}}-{{candidate.section}}
+<br>
+<img src="{{ candidate.image.name}}" alt="error" height="200px" width="200px">
+<img src="{{ candidate.logo.name}}" alt="error" height="200px" width="200px">
+</p>
+</div>
+<br>
+{% endif %}
+{% empty %}
+<h1> No Candidates</h1>
+{% endfor %}
+<h2> Girls</h2>
+
+{% for candidate in candidates %}
+{% if candidate.gender == "Female" %}
+<div style="border: 3px solid black">
+<p>
+Name: {{ candidate.name }}
+<br>
+class: {{candidate.Class}}-{{candidate.section}}
+<br>
+<img src="{{ candidate.image.name}}" alt="error" height="200px" width="200px">
+<img src="{{ candidate.logo.name}}" alt="error" height="200px" width="200px">
+</div>
+</p>
+{% endif %}
+{% empty %}
+<h1> No Candidates</h1>
+{% endfor %}
+{% endblock %}
